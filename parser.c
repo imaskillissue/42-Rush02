@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ekarpawi <ekarpawi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/29 16:13:46 by ekarpawi          #+#    #+#             */
+/*   Updated: 2023/07/29 16:14:50 by ekarpawi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "parser.h"
 #include "map.h"
@@ -20,7 +31,7 @@ t_map	*parse(char *filename)
 	lines = ft_split(content, "\n");
 	if (lines == NULL)
 		return (NULL);
-	while(lines[i])
+	while (lines[i])
 	{
 		map = parse_lines(lines[i], map);
 		if (map == NULL)
@@ -47,9 +58,9 @@ t_map	*parse_lines(char *line, t_map *parent)
 	formtated_value = ft_str_rm(key_value[1], ' ');
 	if (formtated_value == NULL)
 		return (NULL);
-	if(parent == NULL)
-		return (create(ft_atoi(key_value[0]), formtated_value);
-	return (add(parent, ft_atoi(key_value[0]), formtated_value))
+	if (parent == NULL)
+		return (create(ft_atoi(key_value[0]), formtated_value));
+	return (add(parent, ft_atoi(key_value[0]), formtated_value));
 }
 
 char	*read_file(char *filename)

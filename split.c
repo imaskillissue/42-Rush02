@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ekarpawi <ekarpawi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/29 16:15:13 by ekarpawi          #+#    #+#             */
+/*   Updated: 2023/07/29 16:16:04 by ekarpawi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "string_utils.h"
 
@@ -76,6 +87,7 @@ char	**ft_split(char *str, char *charset)
 {
 	int		words;
 	char	**rtn;
+
 	words = word_count(str, charset);
 	rtn = malloc(sizeof(char *) * (words + 1));
 	str_split(str, charset, rtn);
