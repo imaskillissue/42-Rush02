@@ -32,6 +32,7 @@ t_map	*add(t_map *map, int key, char *value)
 	t_map	*tmp;
 
 	new = create(key, value);
+	tmp = map;
 	if (!new)
 		return (0);
 	while (tmp->next)

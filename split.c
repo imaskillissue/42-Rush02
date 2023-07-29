@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "string_utils.h"
+#include <stdlib.h>
 
 int	is_seperator(char c, char *charset)
 {
@@ -65,7 +66,6 @@ void	str_split(char *str, char *charset, char **dest)
 
 	i = 0;
 	j = 0;
-	length = 0;
 	while (str[i])
 	{
 		if (is_seperator(str[i], charset) == 1)
@@ -73,7 +73,8 @@ void	str_split(char *str, char *charset, char **dest)
 		else
 		{
 			length = 0;
-			while (is_seperator(str[i + length], charset) == 0)
+			while (is_seperator(str[i + length], charset) == 0
+				&& str[i + length])
 				length++;
 			dest[j] = malloc(sizeof(char) * (length + 1));
 			dest[j] = ft_strncpy(dest[j], &str[i], length);

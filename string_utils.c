@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "string_utils.h"
+#include <stdlib.h>
 
 int	ft_str_contains(char *str, char c)
 {
@@ -61,4 +62,14 @@ int	ft_atoi(char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 		rtn = rtn * 10 + (str[i++] - '0');
 	return (rtn * sign);
+}
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

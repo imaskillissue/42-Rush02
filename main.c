@@ -11,8 +11,13 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "parser.h"
+#include "map.h"
 
 int	main(void)
 {
-	printf("Hello, World!\n");
+	t_map	*map;
+
+	map = parse("numbers.dict");
+	printf("%s\n", find(map, 1));
 }
