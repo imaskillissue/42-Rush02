@@ -13,7 +13,7 @@
 #include "map.h"
 #include <stdlib.h>
 
-t_map	*create(int key, char *value)
+t_map	*create(long key, char *value)
 {
 	t_map	*map;
 
@@ -26,7 +26,7 @@ t_map	*create(int key, char *value)
 	return (map);
 }
 
-t_map	*add(t_map *map, int key, char *value)
+t_map	*add(t_map *map, long key, char *value)
 {
 	t_map	*new;
 	t_map	*tmp;
@@ -41,7 +41,7 @@ t_map	*add(t_map *map, int key, char *value)
 	return (map);
 }
 
-char	*find(t_map *map, int key)
+char	*find(t_map *map, long key)
 {
 	while (map)
 	{

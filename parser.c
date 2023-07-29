@@ -13,6 +13,7 @@
 #include "parser.h"
 #include "map.h"
 #include "string_utils.h"
+#include "math.h"
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
@@ -26,6 +27,7 @@ t_map	*parse(char *filename)
 {
 	char	*content;
 	t_map	*map;
+	t_map	*tmp;
 	char	**lines;
 	int		i;
 
@@ -35,12 +37,13 @@ t_map	*parse(char *filename)
 	lines = ft_split(content, "\n");
 	if (lines == NULL)
 		return (NULL);
-	i = 0;
+	map = parse_line(lines[0], NULL);
+	i = 1;
 	while (lines[i])
 	{
-		map = parse_line(lines[i], map);
-		if (map == NULL)
-			return (NULL);
+		tmp = parse_line(lines[i], map);
+		if (tmp == NULL)
+			return (map);
 		i++;
 	}
 	return (map);
@@ -61,6 +64,7 @@ t_map	*parse_line(char *line, t_map *parent)
 		return (NULL);
 	if (parent == NULL)
 		return (create(ft_atoi(key_value[0]), value));
+	add(parent, ft_atoi(key_value[0]), value);
 	return (parent);
 }
 

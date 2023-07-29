@@ -13,11 +13,17 @@
 #include <stdio.h>
 #include "parser.h"
 #include "map.h"
+#include "print_utils.h"
+#include "math.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_map	*map;
 
 	map = parse("numbers.dict");
-	printf("%s\n", find(map, 1));
+	print_long(add_digits(2, 2));
+	if (argc == 2)
+		printf("%s\n", find(map, ft_atoi(argv[1])));
+	else
+		print_str("\nError\n");
 }
