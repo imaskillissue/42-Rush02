@@ -26,7 +26,7 @@ t_map	*add(t_map *map, int key, char *value)
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = new;
-	return (new);
+	return (map);
 }
 
 char	*find(t_map *map, int key)

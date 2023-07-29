@@ -11,5 +11,6 @@ add_executable(rush02 main.c
         map.c
         map.h
         parser.c
-        string_utilities.c
-        string_utilities.h)
+        split.c
+        string_utils.h
+        string_utils.c)

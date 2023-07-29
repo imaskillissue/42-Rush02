@@ -1,7 +1,7 @@
 
 #include "parser.h"
 #include "map.h"
-#include "string_utilities.h"
+#include "string_utils.h"
 #include <stdlib.h>
 
 char	*read_file(char *filename);
@@ -18,13 +18,20 @@ t_map	*parse(char *filename)
 	if (content == NULL)
 		return (NULL);
 	lines = ft_split(content, "\n");
-
+	if (lines == NULL)
+		return (NULL);
+	while(lines[i])
+	{
+		map = parse_lines(lines[i], map);
+		if (map == NULL)
+			return (NULL);
+		i++;
+	}
 	return (map);
 }
 
-t_map	*parse_lines(char *line)
+t_map	*parse_lines(char *line, t_map *parent)
 {
-	t_map	*map;
 	char	**key_value;
 	char	*formtated_value;
 	int		i;
@@ -40,8 +47,9 @@ t_map	*parse_lines(char *line)
 	formtated_value = ft_str_rm(key_value[1], ' ');
 	if (formtated_value == NULL)
 		return (NULL);
-	map->key = ft_atoi(key_value[0]);
-	return (map);
+	if(parent == NULL)
+		return (create(ft_atoi(key_value[0]), formtated_value);
+	return (add(parent, ft_atoi(key_value[0]), formtated_value))
 }
 
 char	*read_file(char *filename)
