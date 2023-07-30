@@ -24,5 +24,6 @@ typedef struct s_map
 t_map	*create(long key, char *value);
 t_map	*add(t_map *map, long key, char *value);
 char	*find(t_map *map, long key);
+void	free_map(t_map *map);
 
 #endif

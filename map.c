@@ -51,3 +51,16 @@ char	*find(t_map *map, long key)
 	}
 	return (0);
 }
+
+void	free_map(t_map *map)
+{
+	t_map	*tmp;
+
+	while (map)
+	{
+		tmp = map;
+		map = map->next;
+		free(tmp->value);
+		free(tmp);
+	}
+}

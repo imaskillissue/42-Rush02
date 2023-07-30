@@ -6,7 +6,7 @@
 /*   By: ekarpawi <ekarpawi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 16:13:23 by ekarpawi          #+#    #+#             */
-/*   Updated: 2023/07/29 16:13:26 by ekarpawi         ###   ########.fr       */
+/*   Updated: 2023/07/30 16:44:12 by ekarpawi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,20 @@ int	main(int argc, char **argv)
 {
 	t_map	*map;
 
-	map = parse("numbers.dict");
 	if (argc == 2)
+	{
+		map = parse("numbers.dict");
 		printable_number(map, ft_atoi(argv[1]));
+		newline();
+		free_map(map);
+	}
 	else if (argc == 3)
 	{
-		free(map);
 		map = parse(argv[1]);
 		printable_number(map, ft_atoi(argv[2]));
+		newline();
+		free_map(map);
 	}
 	else
 		print_str("Error: wrong number of arguments\n");
-	newline();
 }

@@ -6,7 +6,7 @@
 /*   By: ekarpawi <ekarpawi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 16:13:46 by ekarpawi          #+#    #+#             */
-/*   Updated: 2023/07/29 16:14:50 by ekarpawi         ###   ########.fr       */
+/*   Updated: 2023/07/30 16:40:10 by ekarpawi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,16 @@ t_map	*parse(char *filename)
 	if (lines == NULL)
 		return (NULL);
 	map = parse_line(lines[0], NULL);
-	i = 1;
-	while (lines[i])
+	i = 0;
+	free(lines[0]);
+	while (lines[++i])
 	{
 		tmp = parse_line(lines[i], map);
 		if (tmp == NULL)
 			return (map);
-		i++;
+		free(lines[i]);
 	}
+	free(content);
 	return (map);
 }
 
@@ -62,8 +64,17 @@ t_map	*parse_line(char *line, t_map *parent)
 	if (value == NULL)
 		return (NULL);
 	if (parent == NULL)
-		return (create(ft_atoi(key_value[0]), value));
+	{
+		parent = create(ft_atoi(key_value[0]), value);
+		free(key_value[0]);
+		free(key_value[1]);
+		free(key_value);
+		return (parent);
+	}
 	add(parent, ft_atoi(key_value[0]), value);
+	free(key_value[0]);
+	free(key_value[1]);
+	free(key_value);
 	return (parent);
 }
 
