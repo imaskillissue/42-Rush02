@@ -36,7 +36,7 @@ void	print_long(long l)
 		l *= -1;
 	}
 	if (l > 9)
-		printlong(l / 10);
+		print_long(l / 10);
 	c = l % 10 + '0';
 	write(1, &c, 1);
 }
