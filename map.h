@@ -16,7 +16,7 @@
 typedef struct s_map	t_map;
 typedef struct s_map
 {
-	long				key;
+	long			key;
 	char			*value;
 	t_map			*next;
 }					t_map;

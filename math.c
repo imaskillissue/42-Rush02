@@ -1,18 +1,16 @@
-//
-// Created by Emil Karpawitz on 7/29/23.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   math.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ekarpawi <ekarpawi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/30 15:30:57 by ekarpawi          #+#    #+#             */
+/*   Updated: 2023/07/30 15:30:58 by ekarpawi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "math.h"
-
-long	add_digits(int n, int amount)
-{
-	long	sum;
-
-	sum = n;
-	while (amount-- > 0)
-		sum *= 10;
-	return (sum);
-}
 
 long	ft_atoi(char *str)
 {

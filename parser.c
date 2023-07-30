@@ -17,7 +17,6 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <stdio.h>
 
 char	*read_file(char *filename);
 t_map	*parse_line(char *line, t_map *parent);
