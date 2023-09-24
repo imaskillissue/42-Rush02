@@ -42,11 +42,12 @@ t_map	*parse(char *filename)
 	while (lines[++i])
 	{
 		tmp = parse_line(lines[i], map);
-		if (tmp == NULL)
-			return (map);
 		free(lines[i]);
+		if (tmp == NULL)
+			break ;
 	}
 	free(content);
+	free(lines);
 	return (map);
 }
 

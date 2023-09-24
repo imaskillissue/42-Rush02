@@ -6,7 +6,7 @@
 /*   By: ekarpawi <ekarpawi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 16:16:13 by ekarpawi          #+#    #+#             */
-/*   Updated: 2023/07/29 16:17:34 by ekarpawi         ###   ########.fr       */
+/*   Updated: 2023/07/30 18:10:04 by ekarpawi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,21 @@ int	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+int	valid_str(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+		{
+			if (str[i] != '-')
+				return (0);
+		}
+		i++;
+	}
+	return (1);
 }
